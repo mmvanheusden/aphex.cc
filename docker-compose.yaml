@@ -1,0 +1,9 @@
+services:
+    aphex:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: aphex.cc
+        ports:
+            - "4410:3000"
+        restart: unless-stopped

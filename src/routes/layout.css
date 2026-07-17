@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@theme {
+	--font-big: "Iosevka Charon";
+}
+
+body {
+	background-color: oklch(27.8% 0.033 256.848);
+	min-height: 100lvh;
+}
+
+@utility btn {
+	@apply transition-transform hover:-translate-y-0.5;
+}

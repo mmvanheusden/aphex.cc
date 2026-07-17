@@ -1,0 +1,38 @@
+[
+	{
+		"title": "SteamDepotDownloaderGUI",
+		"description": "A graphical wrapper for [DepotDownloader](https://github.com/SteamRE/DepotDownloader), designed to make downloading older versions of Steam games easy.<br><br>**Made in**:\n- [Tauri](https://tauri.app)\n- [Preact](https://preactjs.com)",
+		"button": {
+			"text": "Page",
+			"alt": "Go to project page",
+			"url": "https://depotdownloader.aphex.cc"
+		},
+		"image": {
+			"src": "https://raw.githubusercontent.com/mmvanheusden/SteamDepotDownloaderGUI/refs/heads/www/app.gif",
+			"alt": "SteamDepotDownloaderGUI interface"
+		}
+	},
+	{
+		"title": "Heartbeat",
+		"description": "My Garmin health data. Presented in an unconventional Aero-styled visual experience.",
+		"button": {
+			"text": "Page",
+			"alt": "Go to project page",
+			"url": "https://heartbeat.aphex.cc"
+		},
+		"image": {
+			"src": "projects/heartbeat.ico",
+			"alt": "Heartbeat logo",
+			"width": 150
+		}
+	},
+	{
+		"title": "HU Ruimte Reserveren",
+		"description": "A WRB (Web Resources Booking) system for HU University of Applied Sciences.<br>I worked on the backend, where I setup an ORM, many endpoints, and implemented OAuth with multi-service login.<br>I also developed a system that allows the global HU schedule to be scraped and imported in our system, providing us realistic testing data.",
+		"button": {
+			"text": "Page",
+			"alt": "Go to project page",
+			"url": "https://ruimtereserveren.aphex.cc"
+		}
+	}
+]

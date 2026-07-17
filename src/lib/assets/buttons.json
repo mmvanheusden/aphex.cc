@@ -1,0 +1,65 @@
+[
+	{
+		"title": "GrapheneOS",
+		"alt": "Button with GrapheneOS logo",
+		"file": "grapheneos.gif",
+		"href": "https://grapheneos.org"
+	},
+	{
+		"title": "Stop Microsoft",
+		"alt": "Button with Stop Microsoft marking",
+		"file": "microsoft_stop.gif",
+		"href": "https://stallman.org/microsoft.html"
+	},
+	{
+		"title": "Half-Life",
+		"alt": "Button with Half-Life (videogame) logo",
+		"file": "hl.gif",
+		"href": "https://half-life.com"
+	},
+	{
+		"title": "Last.fm",
+		"alt": "Button with Last.fm logo",
+		"file": "lastfm.png",
+		"href": "https://last.fm/user/barbeaupapa"
+	},
+	{
+		"title": "Made on Linux",
+		"alt": "Button with Made on Linux marking",
+		"file": "madeon_linux.gif"
+	},
+	{
+		"title": "Pride",
+		"alt": "Button with Pride flag",
+		"file": "rainbow.svg"
+	},
+	{
+		"title": "Steam",
+		"alt": "Button with Steam logo",
+		"file": "steam.gif",
+		"href": "https://steamcommunity.com/id/barbepapa"
+	},
+	{
+		"title": "Portal",
+		"alt": "Button with Portal (videogame) logo",
+		"file": "portal.png",
+		"href": "https://isthereanydeal.com/game/portal-2"
+	},
+	{
+		"title": "Wii",
+		"alt": "Button with Nintendo Wii logo",
+		"file": "wii.gif",
+		"href": "https://wii.hacks.guide"
+	},
+	{
+		"title": "Seed your Torrents",
+		"alt": "Button with Seed your Torrents marking",
+		"file": "seedyourtorrents.gif"
+	},
+	{
+		"title": "Install Forgego Now",
+		"alt": "Button with \"Install Forgejo Now\" marking",
+		"file": "forgejo.gif",
+		"href": "https://forgejo.org"
+	}
+]
