@@ -9,7 +9,7 @@
 <section class="mt-6 sm:mt-8">
 	<h1 class="font-big text-3xl font-extrabold sm:text-4xl">About me</h1>
 	<div class="mx-2 mt-2 text-base sm:text-lg">
-		My name is Maarten and I am 18 years old. I like coding and staying active.<br />
+		My name is Maarten and I am {data.age} years old. I like coding and staying active.<br />
 		I'm a Computer Science student in Utrecht, the Netherlands.<br />
 		I like to teach others subjects in IT, and I enjoy programming in my free time. I like Rust, but
 		I am proficient in other languages as well.<br />
