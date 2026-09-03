@@ -19,6 +19,11 @@ export const navbars = {
 			path: "https://linkedin.com/in/mmvanheusden/",
 			title: "LinkedIn",
 		},
+		{
+			icon: "pixel:github",
+			path: "https://github.com/mmvanheusden/",
+			title: "GitHub",
+		},
 	],
 } satisfies Record<string, NavbarItem[]>;
 
