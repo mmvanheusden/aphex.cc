@@ -17,7 +17,6 @@ export const load: PageServerLoad = async () => {
 		buttons: buttons,
 		projects: projects,
 	};
-	
-	
+
 	error(404, "Not found");
 };
