@@ -5,8 +5,8 @@ dayjs.extend(relativeTime);
 
 import type { PageServerLoad } from "./$types";
 
-import buttons from "../lib/assets/buttons.json";
-import projects from "../lib/assets/projects.json";
+import buttons from "../lib/client/assets/buttons.json";
+import projects from "../lib/client/assets/projects.json";
 
 export const load: PageServerLoad = async () => {
 	const BIRTHDAY = dayjs("2008-03-05");

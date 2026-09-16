@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { NavbarItem } from "$lib/navbars";
+	import type { NavbarItem } from "$lib/client/navbars";
 
 	import Icon from "@iconify/svelte";
 

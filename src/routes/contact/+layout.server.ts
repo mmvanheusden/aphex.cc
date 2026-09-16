@@ -1,4 +1,4 @@
-import type { NavbarVariant } from "$lib/navbars";
+import type { NavbarVariant } from "$lib/client/navbars";
 
 import type { LayoutServerLoad } from "./$types";
 
