@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { page } from "$app/state";
-	import favicon from "$lib/assets/favicon.svg";
-	import Navbar from "$lib/components/Navbar.svelte";
-	import { type NavbarItem, navbars, type NavbarVariant } from "$lib/navbars";
+	import favicon from "$lib/client/assets/favicon.svg";
+	import Navbar from "$lib/client/components/Navbar.svelte";
+	import { type NavbarItem, navbars, type NavbarVariant } from "$lib/client/navbars";
 	import { Neko } from "@yuna0x0/svelte-neko";
 
 	import type { LayoutProps } from "./$types";

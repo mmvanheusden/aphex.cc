@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ProjectCard from "$lib/components/ProjectCard.svelte";
+	import ProjectCard from "$lib/client/components/ProjectCard.svelte";
 
 	import type { PageProps } from "./$types";
 
