@@ -40,12 +40,34 @@ export default defineConfig(
 		// 'svelte/button-has-type': 'error'
 		rules: {
 			"perfectionist/sort-imports": [
-				"error",
+				"warn",
 				{
 					order: "asc",
 					type: "natural",
 				},
 			],
+		},
+	},
+	{
+		rules: {
+			"perfectionist/sort-array-includes": "warn",
+			"perfectionist/sort-classes": "warn",
+			"perfectionist/sort-enums": "warn",
+			"perfectionist/sort-exports": "warn",
+			"perfectionist/sort-heritage-clauses": "warn",
+			"perfectionist/sort-imports": "warn",
+			"perfectionist/sort-interfaces": "warn",
+			"perfectionist/sort-jsx-props": "warn",
+			"perfectionist/sort-maps": "warn",
+			"perfectionist/sort-modules": "warn",
+			"perfectionist/sort-named-exports": "warn",
+			"perfectionist/sort-named-imports": "warn",
+			"perfectionist/sort-object-types": "warn",
+			"perfectionist/sort-objects": "warn",
+			"perfectionist/sort-sets": "warn",
+			"perfectionist/sort-switch-case": "warn",
+			"perfectionist/sort-union-types": "warn",
+			"perfectionist/sort-variable-declarations": "warn",
 		},
 	},
 );
