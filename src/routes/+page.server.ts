@@ -27,14 +27,20 @@ export const load: PageServerLoad = async () => {
 	const url =
 		`${HOMEASSISTANT_URL}/api/states/` + encodeURIComponent(HOMEASSISTANT_BOOLEAN_ENTITY);
 
-	const response = await fetch(url, {
-		headers: {
-			Authorization: `Bearer ${HOMEASSISTANT_TOKEN}`,
-			"Content-Type": "application/json",
-		},
-	});
+	let response: null | Response = null;
+	try {
+		response = await fetch(url, {
+			headers: {
+				Authorization: `Bearer ${HOMEASSISTANT_TOKEN}`,
+				"Content-Type": "application/json",
+			},
+			signal: AbortSignal.timeout(5000),
+		});
+	} catch {
+		// Home Assistant is optional data for this page.
+	}
 
-	if (response.ok) {
+	if (response?.ok) {
 		const sensor = (await response.json()) as HomeAssistantBooleanState;
 		science_park = {
 			last_changed: sensor.last_changed,

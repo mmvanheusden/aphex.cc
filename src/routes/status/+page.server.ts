@@ -3,7 +3,6 @@ import {
 	HOMEASSISTANT_TRACKER_ENTITY,
 	HOMEASSISTANT_URL,
 } from "$env/static/private";
-import { authClient } from "$lib/client/auth_client";
 import { getHassioZones } from "$lib/server/home_assistant";
 import { error } from "@sveltejs/kit";
 
