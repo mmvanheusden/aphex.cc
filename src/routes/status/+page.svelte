@@ -16,7 +16,7 @@
 	const session = authClient.useSession();
 </script>
 
-{#if $session.data}
+{#if $session.data && data.position}
 	<section class="mt-6 sm:mt-8">
 		<h1 class="font-big text-3xl font-extrabold sm:text-4xl">Position</h1>
 		<div class="mx-2 mt-2 text-base sm:text-lg">
@@ -42,7 +42,7 @@
 					</Map>
 				</div>
 				<p class="text-md text-gray-300">
-					Data from pulled from mobile phone at <b class="italic underline"
+					Data pulled from mobile phone at <b class="italic underline"
 						>{dayjs
 							.utc(data.position.lastSeen)
 							.local()

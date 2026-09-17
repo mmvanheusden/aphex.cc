@@ -22,6 +22,7 @@ type HomeAssistantBooleanState = {
 export const load: PageServerLoad = async () => {
 	const BIRTHDAY = dayjs("2008-03-05");
 	const age = dayjs().diff(dayjs(BIRTHDAY), "year");
+	let science_park = null;
 
 	const url =
 		`${HOMEASSISTANT_URL}/api/states/` + encodeURIComponent(HOMEASSISTANT_BOOLEAN_ENTITY);
@@ -33,20 +34,19 @@ export const load: PageServerLoad = async () => {
 		},
 	});
 
-	if (!response.ok) {
-		throw error(response.status, `Home Assistant returned ${response.status}`);
+	if (response.ok) {
+		const sensor = (await response.json()) as HomeAssistantBooleanState;
+		science_park = {
+			last_changed: sensor.last_changed,
+			present: sensor.state === "on",
+		};
 	}
-
-	const sensor = (await response.json()) as HomeAssistantBooleanState;
 
 	return {
 		age: age,
 		buttons: buttons,
 		projects: projects,
-		science_park: {
-			last_changed: sensor.last_changed,
-			present: sensor.state === "on",
-		},
+		science_park: science_park,
 	};
 
 	error(404, "Not found");
