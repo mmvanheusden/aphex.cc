@@ -3,7 +3,11 @@
 	import { authClient } from "$lib/client/auth_client";
 	import { controls, Map, Marker } from "@beyonk/svelte-mapbox";
 	const { GeolocateControl, NavigationControl } = controls;
+	import dayjs from "dayjs";
+	import utc from "dayjs/plugin/utc";
+
 	import type { PageData } from "./$types";
+	dayjs.extend(utc);
 
 	let mapComponent = $state();
 
@@ -17,13 +21,6 @@
 		<h1 class="font-big text-3xl font-extrabold sm:text-4xl">Position</h1>
 		<div class="mx-2 mt-2 text-base sm:text-lg">
 			<div>
-				<p>
-					Logged in as: {$session.data.user.name}
-				</p>
-
-				Maarten is currently at: {data.position.zone}
-				As of <b>{data.position.lastSeen}</b>,
-
 				<div style="width:100%;height:500px;">
 					<Map
 						bind:this={mapComponent}
@@ -44,6 +41,14 @@
 						<GeolocateControl />
 					</Map>
 				</div>
+				<p class="text-md text-gray-300">
+					Data from pulled from mobile phone at <b class="italic underline"
+						>{dayjs
+							.utc(data.position.lastSeen)
+							.local()
+							.format("D MMMM[ @ ]HH:mm:ss")}</b
+					>
+				</p>
 			</div>
 		</div>
 	</section>
