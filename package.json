@@ -14,6 +14,7 @@
 		"format": "rustywind --write . && prettier --write . && eslint --fix ."
 	},
 	"devDependencies": {
+		"@beyonk/svelte-mapbox": "^12.1.4",
 		"@eslint/js": "^10.0.1",
 		"@iconify/svelte": "^5.2.2",
 		"@sveltejs/adapter-node": "^5.5.7",
@@ -43,7 +44,6 @@
 		"@yuna0x0/svelte-neko": "^0.2.0",
 		"better-auth": "^1.7.3",
 		"dayjs": "^1.11.23",
-		"rustywind": "^0.28.0",
-		"sveaflet": "^0.1.5"
+		"rustywind": "^0.28.0"
 	}
 }

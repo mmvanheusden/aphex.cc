@@ -1,27 +1,15 @@
 <script lang="ts">
+	import { PUBLIC_MAPBOX_API_KEY } from "$env/static/public";
 	import { authClient } from "$lib/client/auth_client";
-	import { type Component, type ComponentProps, onMount } from "svelte";
-
+	import { controls, Map, Marker } from "@beyonk/svelte-mapbox";
+	const { GeolocateControl, NavigationControl } = controls;
 	import type { PageData } from "./$types";
+
+	let mapComponent = $state();
 
 	let { data }: { data: PageData } = $props();
 
 	const session = authClient.useSession();
-
-	// Based on https://github.com/GrayFrost/sveaflet/issues/32#issuecomment-3031852071.
-	import type Map from "../../lib/client/components/Map.svelte";
-	type MapProps = ComponentProps<typeof Map>; // The props type.
-	let MapComponentClientSide = $state.raw<Component<MapProps> | null>(null);
-
-	let mapProps: MapProps = $state.raw({
-		center: [data.position.latitude, data.position.longitude],
-		zoom: 15,
-	});
-
-	onMount(async () => {
-		const { default: Map } = await import("../../lib/client/components/Map.svelte");
-		MapComponentClientSide = Map;
-	});
 </script>
 
 {#if $session.data}
@@ -37,10 +25,24 @@
 				As of <b>{data.position.lastSeen}</b>,
 
 				<div style="width:100%;height:500px;">
-					{#if MapComponentClientSide}
-						{@const Map = MapComponentClientSide}
-						<Map {...mapProps} />
-					{/if}
+					<Map
+						bind:this={mapComponent}
+						accessToken={PUBLIC_MAPBOX_API_KEY}
+						options={{ scrollZoom: true }}
+						center={[data.position.longitude, data.position.latitude]}
+						zoom="14"
+					>
+						<Marker
+							lat={data.position.latitude}
+							lng={data.position.longitude}
+							color="rgb(255,0,0)"
+							label="Maarten"
+							popupClassName="class-name"
+							popup={false}
+						/>
+						<NavigationControl />
+						<GeolocateControl />
+					</Map>
 				</div>
 			</div>
 		</div>
