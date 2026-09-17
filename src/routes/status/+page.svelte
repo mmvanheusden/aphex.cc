@@ -1,11 +1,27 @@
 <script lang="ts">
 	import { authClient } from "$lib/client/auth_client";
+	import { type Component, type ComponentProps, onMount } from "svelte";
 
 	import type { PageData } from "./$types";
 
+	let { data }: { data: PageData } = $props();
+
 	const session = authClient.useSession();
 
-	let { data }: { data: PageData } = $props();
+	// Based on https://github.com/GrayFrost/sveaflet/issues/32#issuecomment-3031852071.
+	import type Map from "../../lib/client/components/Map.svelte";
+	type MapProps = ComponentProps<typeof Map>; // The props type.
+	let MapComponentClientSide = $state.raw<Component<MapProps> | null>(null);
+
+	let mapProps: MapProps = $state.raw({
+		center: [data.position.latitude, data.position.longitude],
+		zoom: 15,
+	});
+
+	onMount(async () => {
+		const { default: Map } = await import("../../lib/client/components/Map.svelte");
+		MapComponentClientSide = Map;
+	});
 </script>
 
 {#if $session.data}
@@ -19,6 +35,13 @@
 
 				Maarten is currently at: {data.position.zone}
 				As of <b>{data.position.lastSeen}</b>,
+
+				<div style="width:100%;height:500px;">
+					{#if MapComponentClientSide}
+						{@const Map = MapComponentClientSide}
+						<Map {...mapProps} />
+					{/if}
+				</div>
 			</div>
 		</div>
 	</section>

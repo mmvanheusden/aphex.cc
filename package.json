@@ -43,6 +43,7 @@
 		"@yuna0x0/svelte-neko": "^0.2.0",
 		"better-auth": "^1.7.3",
 		"dayjs": "^1.11.23",
-		"rustywind": "^0.28.0"
+		"rustywind": "^0.28.0",
+		"sveaflet": "^0.1.5"
 	}
 }
