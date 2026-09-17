@@ -1,6 +1,9 @@
 import { building } from "$app/environment";
 import { auth } from "$lib/server/auth";
+import { initHassioZones } from "$lib/server/home_assistant";
 import { svelteKitHandler } from "better-auth/svelte-kit";
+
+void initHassioZones();
 
 export async function handle({ event, resolve }) {
 	// Fetch current session from Better Auth
