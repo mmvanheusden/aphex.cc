@@ -13,7 +13,11 @@ export const navbars = {
 		// { title: "Contact", path: resolve("/contact") },
 	],
 	default: [
-		{ path: resolve("/contact"), title: "Contact" },
+		{
+			icon: "pixelarticons:contact",
+			path: resolve("/contact"),
+			title: "Contact",
+		},
 		{
 			icon: "pixel:linkedin",
 			path: "https://linkedin.com/in/mmvanheusden/",
@@ -23,6 +27,11 @@ export const navbars = {
 			icon: "pixel:github",
 			path: "https://github.com/mmvanheusden/",
 			title: "GitHub",
+		},
+		{
+			icon: "pixel:mastodon",
+			path: "https://fosstodon.org/@barbapapa/",
+			title: "Mastodon",
 		},
 	],
 } satisfies Record<string, NavbarItem[]>;
