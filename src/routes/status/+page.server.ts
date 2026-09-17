@@ -1,4 +1,8 @@
-import { HOMEASSISTANT_ENTITY, HOMEASSISTANT_TOKEN, HOMEASSISTANT_URL } from "$env/static/private";
+import {
+	HOMEASSISTANT_TOKEN,
+	HOMEASSISTANT_TRACKER_ENTITY,
+	HOMEASSISTANT_URL,
+} from "$env/static/private";
 import { getHassioZones } from "$lib/server/home_assistant";
 import { error } from "@sveltejs/kit";
 
@@ -23,7 +27,8 @@ type HomeAssistantTrackerState = {
 
 export const load: PageServerLoad = async ({ fetch }) => {
 	const zones_map = getHassioZones();
-	const url = `${HOMEASSISTANT_URL}/api/states/` + encodeURIComponent(HOMEASSISTANT_ENTITY);
+	const url =
+		`${HOMEASSISTANT_URL}/api/states/` + encodeURIComponent(HOMEASSISTANT_TRACKER_ENTITY);
 
 	const response = await fetch(url, {
 		headers: {
