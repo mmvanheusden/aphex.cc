@@ -1,11 +1,15 @@
+import type { Handle } from "@sveltejs/kit";
+
 import { building } from "$app/environment";
 import { auth } from "$lib/server/auth";
 import { initHassioZones } from "$lib/server/home_assistant";
 import { svelteKitHandler } from "better-auth/svelte-kit";
 
-void initHassioZones();
+void initHassioZones().catch((cause) => {
+	console.error("Failed to initialize Home Assistant zones", cause);
+});
 
-export async function handle({ event, resolve }) {
+export const handle: Handle = async ({ event, resolve }) => {
 	// Fetch current session from Better Auth
 	const session = await auth.api.getSession({
 		headers: event.request.headers,
@@ -18,4 +22,4 @@ export async function handle({ event, resolve }) {
 	}
 
 	return svelteKitHandler({ auth, building, event, resolve });
-}
+};

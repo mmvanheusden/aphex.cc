@@ -47,7 +47,6 @@ async function fetchHassioZones(): Promise<void> {
 	const zones = entities
 		.filter((entitiy) => entitiy.entity_id.startsWith("zone."))
 		.map((zone) => {
-			console.trace(zone);
 			return {
 				friendly_name: zone.attributes.friendly_name,
 				id: zone.entity_id,

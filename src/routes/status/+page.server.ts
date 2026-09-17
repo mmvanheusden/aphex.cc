@@ -3,6 +3,7 @@ import {
 	HOMEASSISTANT_TRACKER_ENTITY,
 	HOMEASSISTANT_URL,
 } from "$env/static/private";
+import { authClient } from "$lib/client/auth_client";
 import { getHassioZones } from "$lib/server/home_assistant";
 import { error } from "@sveltejs/kit";
 
@@ -25,7 +26,11 @@ type HomeAssistantTrackerState = {
 	state: string;
 };
 
-export const load: PageServerLoad = async ({ fetch }) => {
+export const load: PageServerLoad = async ({ fetch, locals }) => {
+	if (!locals.session || !locals.user) {
+		return;
+	}
+
 	const zones_map = getHassioZones();
 	const url =
 		`${HOMEASSISTANT_URL}/api/states/` + encodeURIComponent(HOMEASSISTANT_TRACKER_ENTITY);
@@ -48,7 +53,7 @@ export const load: PageServerLoad = async ({ fetch }) => {
 			lastSeen: sensor.attributes.last_seen,
 			latitude: sensor.attributes.latitude,
 			longitude: sensor.attributes.longitude,
-			zone: zones_map!.find((zone) => zone.id === sensor.attributes.in_zones[0])
+			zone: zones_map?.find((zone) => zone.id === sensor.attributes.in_zones[0])
 				?.friendly_name,
 		},
 	};

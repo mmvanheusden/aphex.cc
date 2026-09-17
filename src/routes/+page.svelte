@@ -12,17 +12,19 @@
 	let { data }: PageProps = $props();
 </script>
 
-<section class="flex rotate-2 flex-col items-end justify-end whitespace-pre-wrap">
-	<p class="font-big text-3xl font-semibold">
-		Is Maarten nu op het Science Park? <b
-			class={`text-6xl font-extrabold ${data.science_park.present ? "text-green-500" : "text-red-500"}`}
-			>{data.science_park.present ? "JA!" : "NEE"}!</b
-		>
-	</p>
-	<p class="text-xs">
-		Sinds {dayjs.utc(data.science_park.last_changed).local().format("D MMM[ ]HH:mm:ss")}
-	</p>
-</section>
+{#if data.science_park}
+	<section class="flex rotate-2 flex-col items-end justify-end whitespace-pre-wrap">
+		<p class="font-big text-3xl font-semibold">
+			Is Maarten nu op het Science Park? <b
+				class={`text-6xl font-extrabold ${data.science_park.present ? "text-green-500" : "text-red-500"}`}
+				>{data.science_park.present ? "JA!" : "NEE"}!</b
+			>
+		</p>
+		<p class="text-xs">
+			Sinds {dayjs.utc(data.science_park.last_changed).local().format("D MMM[ ]HH:mm:ss")}
+		</p>
+	</section>
+{/if}
 
 <section class="mt-6 sm:mt-8">
 	<h1 class="font-big text-3xl font-extrabold sm:text-4xl">About me</h1>
