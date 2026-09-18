@@ -5,11 +5,13 @@ import {
 	OAUTH_CLIENT_SECRET,
 	OAUTH_DISCOVERY_URL,
 } from "$env/static/private";
+import { PUBLIC_SITE_URL } from "$env/static/public";
 import { betterAuth } from "better-auth";
 import { genericOAuth } from "better-auth/plugins";
 import { sveltekitCookies } from "better-auth/svelte-kit";
 
 export const auth = betterAuth({
+	baseURL: PUBLIC_SITE_URL,
 	plugins: [
 		genericOAuth({
 			config: [
