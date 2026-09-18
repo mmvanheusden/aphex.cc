@@ -25,3 +25,6 @@ vite.config.ts.timestamp-*
 # Editors
 .idea/
 .vscode/
+
+# Database
+*.db

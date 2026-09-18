@@ -6,12 +6,20 @@ import {
 	OAUTH_DISCOVERY_URL,
 } from "$env/static/private";
 import { PUBLIC_SITE_URL } from "$env/static/public";
+import { drizzleAdapter } from "@better-auth/drizzle-adapter/relations-v2";
 import { betterAuth } from "better-auth";
 import { genericOAuth } from "better-auth/plugins";
 import { sveltekitCookies } from "better-auth/svelte-kit";
 
+import * as schema from "./db/auth_schema.ts";
+import { db } from "./db/database";
+
 export const auth = betterAuth({
 	baseURL: PUBLIC_SITE_URL,
+	database: drizzleAdapter(db, {
+		provider: "sqlite",
+		schema: schema,
+	}),
 	plugins: [
 		genericOAuth({
 			config: [
